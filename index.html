@@ -41,13 +41,13 @@
         <!-- /Collapsible Navbar -->
     </header>
     <main>
-        <div class="container d-flex gap-4">
-            <div>
+        <div class="container d-md-flex gap-4">
+            <div class="col-12 col-md-8">
                 <!-- Title -->
                 <h1>Richiesta Preventivo</h1>
                 <!-- /Title -->
                 <!-- Subtitle -->
-                <h4 class="fw-normal fs-6">Compila il form per richiedere un preventivo per i nostri servizi di
+                <h4 class="fw-normal fs-6 mb-3">Compila il form per richiedere un preventivo per i nostri servizi di
                     sviluppo.</h4>
                 <!-- /Subtitle -->
                 <!-- Form -->
@@ -63,7 +63,7 @@
                             <input type="text" class="form-control" id="user-lastname">
                         </div>
                         <div class="col-12">
-                            <label for="user-email" class="form-label">E-mail</label>
+                            <label for="user-email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="user-email">
                         </div>
                         <!-- /Input: firstname, lastname and email -->
@@ -91,7 +91,7 @@
                         </div>
                         <!-- /Input: promotional code -->
                         <!-- Checkbox: privacy policy -->
-                        <div class="col-12">
+                        <div class="col-12 mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="privacy-check">
                                 <label class="form-check-label" for="privacy-check">
@@ -100,9 +100,11 @@
                             </div>
                         </div>
                         <!-- /Checkbox: privacy policy -->
-                        <div class="col-12 d-flex justify-content-around align-items-center mt-4 mb-5">
+                        <div class="col-12 d-md-flex justify-content-around align-items-center mt-0 mt-md-4 mb-5">
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary">Calcola Preventivo</button>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary">Calcola Preventivo</button>
+                            </div>
                             <!-- /Submit button -->
                             <!-- Price container -->
                             <div class="text-center">
@@ -119,24 +121,24 @@
                 </form>
                 <!-- /Form -->
             </div>
-
-            <!-- Card -->
-            <div class="card flex-shrink-0 align-self-start">
-                <img src="https://picsum.photos/id/1/300/200" class="card-img-top" alt="placeholder image">
-                <div class="card-body">
-                    <h5 class="card-title">I nostri contatti</h5>
-                    <p class="card-text">Se hai bisogno di aiuto puoi<br>contattarci:</p>
+            <div class="col-12 col-md-4 d-flex align-self-start">
+                <!-- Card -->
+                <div class="card flex-grow-1 mb-5">
+                    <img src="https://picsum.photos/id/1/300/200" class="card-img-top" alt="placeholder image">
+                    <div class="card-body">
+                        <h5 class="card-title">I nostri contatti</h5>
+                        <p class="card-text text-wrap">Se hai bisogno di aiuto puoi contattarci:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">help@boolfactory.test</li>
+                        <li class="list-group-item">+1122334455</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Help desk</a>
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">help@boolfactory.test</li>
-                    <li class="list-group-item">+1122334455</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Help desk</a>
-                </div>
+                <!-- /Card -->
             </div>
-            <!-- /Card -->
-
         </div>
     </main>
     <footer class="mt-5 py-4 text-bg-dark text-center">
