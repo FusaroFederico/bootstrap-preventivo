@@ -51,7 +51,58 @@
                     sviluppo.</h4>
                 <!-- /Subtitle -->
                 <!-- Form -->
-                <h2>FORM</h2>
+                <form method="get" class="fw-medium">
+                    <div class="row g-3">
+                        <!-- Input: firstname, lastname and email -->
+                        <div class="col-12">
+                            <label for="user-name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="user-firstname">
+                        </div>
+                        <div class="col-12">
+                            <label for="user-lastname" class="form-label">Cognome</label>
+                            <input type="text" class="form-control" id="user-lastname">
+                        </div>
+                        <div class="col-12">
+                            <label for="user-email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="user-email">
+                        </div>
+                        <!-- /Input: firstname, lastname and email -->
+                        <!-- Select: work requested by the user -->
+                        <div class="col-12">
+                            <label for="user-reqwork" class="form-label">Tipo di lavoro</label>
+                            <select class="form-select" aria-label="Default select example" id="user-reqwork">
+                                <option selected>Seleziona il tipo di lavoro</option>
+                                <option value="1">Backend Development</option>
+                                <option value="2">Frontend Development</option>
+                                <option value="3">Project Analysis</option>
+                            </select>
+                        </div>
+                        <!-- /Select: work requested by the user -->
+                        <!-- Textarea: user comments -->
+                        <div class="col-12">
+                            <label for="user-comment" class="form-label">Spazio dedicato ai commenti</label>
+                            <textarea class="form-control" id="user-comment" rows="3"></textarea>
+                        </div>
+                        <!-- /Textarea: user comments -->
+                        <!-- Input: promotional code -->
+                        <div class="col-12">
+                            <label for="prom-code" class="form-label">Codice Promozionale (opzionale)</label>
+                            <input type="text" class="form-control" id="prom-code">
+                        </div>
+                        <!-- /Input: promotional code -->
+                        <!-- Checkbox: privacy policy -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="privacy-check">
+                                <label class="form-check-label" for="privacy-check">
+                                    Accetto la Privacy Policy
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /Checkbox: privacy policy -->
+
+                    </div>
+                </form>
                 <!-- /Form -->
             </div>
             <div>
