@@ -25,6 +25,7 @@ userForm.addEventListener('submit', function (event) {
     // price calculation
     if (userReqWork.value === "") {
         priceUnit.innerText = '€ --';
+        priceDec.innerText = ',--';
         console.log("input non valido");
     } else {
         let price = calcPrice(Number(workType)) * 100;
