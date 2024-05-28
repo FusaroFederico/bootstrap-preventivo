@@ -16,3 +16,31 @@ const priceDec = document.getElementById('price-dec');
 
 // array with valid promotional codes
 const valPromCode = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
+
+// form eventlistener
+userForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const workType = userReqWork.value;
+
+    // price calculation
+    if (userReqWork.value === "") {
+        priceUnit.innerText = '€ --';
+        console.log("input non valido");
+    } else {
+        let price = calcPrice(Number(workType));
+        // discount from promotional code
+        const code = promCode.value;
+        if (valPromCode.includes(code.toUpperCase())) {
+            price = price * 0.75;
+        } else {
+            console.log('codice sconto non valido');
+        }
+        priceUnit.innerText = '€ ' + price;
+    }
+});
+
+// function return final price 
+function calcPrice(num) {
+    const priceHour = [20.50, 15.30, 33.60];
+    return priceHour[num - 1] * 10;
+}
