@@ -27,7 +27,7 @@ userForm.addEventListener('submit', function (event) {
         priceUnit.innerText = '€ --';
         console.log("input non valido");
     } else {
-        let price = calcPrice(Number(workType));
+        let price = calcPrice(Number(workType)) * 100;
         // discount from promotional code
         const code = promCode.value;
         if (valPromCode.includes(code.toUpperCase())) {
@@ -35,7 +35,9 @@ userForm.addEventListener('submit', function (event) {
         } else {
             console.log('codice sconto non valido');
         }
-        priceUnit.innerText = '€ ' + price;
+        // price visualization in page
+        priceUnit.innerText = '€ ' + price.toString().slice(0, 3);
+        priceDec.innerText = ',' + price.toString().slice(3, 5);
     }
 });
 
