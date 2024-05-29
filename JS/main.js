@@ -7,7 +7,7 @@ JS strict mode
 const userFirstName = document.getElementById('user-firstname');
 const userLastName = document.getElementById('user-lastname');
 const userEmail = document.getElementById('user-email');
-const userReqWork = document.getElementById('user-reqwork');
+const workType = document.getElementById('user-reqwork');
 const promCode = document.getElementById('prom-code');
 const privacyCheck = document.getElementById('privacy-check');
 const userForm = document.getElementById('user-form');
@@ -20,21 +20,34 @@ const valPromCode = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 // form eventlistener
 userForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const workType = userReqWork.value;
 
-    // price calculation
-    if (userReqWork.value === "") {
+    // invalid feedback default
+    document.getElementById('invalid-promcode').classList.add('d-none');
+    document.getElementById('invalid-reqwork').classList.add('d-none');
+    workType.classList.remove('border-danger');
+
+    // validation control variable
+    let validControl = true;
+
+    // input workType validation
+    if (workType.value === "") {
         priceUnit.innerText = '€ --';
         priceDec.innerText = ',--';
-        console.log("input non valido");
-    } else {
-        let price = calcPrice(Number(workType)) * 100;
-        // discount from promotional code
+        workType.classList.add('border-danger');
+        document.getElementById('invalid-reqwork').classList.remove('d-none');
+        validControl = false;
+    }
+
+    // price calculation
+    if (validControl) {
+        let price = calcPrice(Number(workType.value)) * 100;
+        // discount for valid promotional code
         const code = promCode.value;
         if (valPromCode.includes(code.toUpperCase())) {
+            // 25% discount
             price = price * 0.75;
-        } else {
-            console.log('codice sconto non valido');
+        } else if (code !== "") {
+            document.getElementById('invalid-promcode').classList.remove('d-none');
         }
         // price visualization in page
         priceUnit.innerText = '€ ' + price.toString().slice(0, 3);
