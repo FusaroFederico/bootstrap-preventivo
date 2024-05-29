@@ -57,14 +57,20 @@
                         <div class="col-12">
                             <label for="user-firstname" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="user-firstname">
+                            <div id="invalid-firstname" class="form-text fw-normal text-danger d-none">Perfavore
+                                inserisci il tuo nome.</div>
                         </div>
                         <div class="col-12">
                             <label for="user-lastname" class="form-label">Cognome</label>
                             <input type="text" class="form-control" id="user-lastname">
+                            <div id="invalid-lastname" class="form-text fw-normal text-danger d-none">Perfavore
+                                inserisci il tuo cognome.</div>
                         </div>
                         <div class="col-12">
                             <label for="user-email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="user-email">
+                            <div id="invalid-email" class="form-text fw-normal text-danger d-none">Perfavore inserisci
+                                una mail valida.</div>
                         </div>
                         <!-- /Input: firstname, lastname and email -->
                         <!-- Select: work requested by the user -->
@@ -76,6 +82,8 @@
                                 <option value="2">Frontend Development</option>
                                 <option value="3">Project Analysis</option>
                             </select>
+                            <div id="invalid-reqwork" class="form-text fw-normal text-danger d-none">È necessario
+                                inserire la tipologia di lavoro richiesto!</div>
                         </div>
                         <!-- /Select: work requested by the user -->
                         <!-- Textarea: user comments -->
@@ -88,6 +96,9 @@
                         <div class="col-12">
                             <label for="prom-code" class="form-label">Codice Promozionale (opzionale)</label>
                             <input type="text" class="form-control" id="prom-code">
+                            <div id="invalid-promcode" class="alert alert-warning fw-normal d-none mt-1">
+                                Attenzione, il codice immesso non è valido. Il prezzo finale è calcolato senza
+                                sconti.</div>
                         </div>
                         <!-- /Input: promotional code -->
                         <!-- Checkbox: privacy policy -->
@@ -97,6 +108,8 @@
                                 <label class="form-check-label" for="privacy-check">
                                     Accetto la Privacy Policy
                                 </label>
+                                <div id="invalid-privacy" class="form-text fw-normal text-danger d-none">È necessario
+                                    accettare la Policy Privacy per proseguire.</div>
                             </div>
                         </div>
                         <!-- /Checkbox: privacy policy -->
