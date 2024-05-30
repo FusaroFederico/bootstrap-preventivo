@@ -17,6 +17,17 @@ const priceDec = document.getElementById('price-dec');
 // array with valid promotional codes
 const valPromCode = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 
+// object contain select options
+const selectOptions = ['Backend Development', 'Frontend Development', 'Project Analysis'];
+
+// create html elements from object
+selectOptions.forEach(function (element, index) {
+    let option = document.createElement('option');
+    option.value = `${index + 1}`;
+    option.innerText = element;
+    workType.append(option);
+});
+
 // form eventlistener
 userForm.addEventListener('submit', function (event) {
     event.preventDefault();
