@@ -24,6 +24,7 @@ userForm.addEventListener('submit', function (event) {
     // invalid feedback default
     document.getElementById('invalid-promcode').classList.add('d-none');
     document.getElementById('invalid-reqwork').classList.add('d-none');
+    document.getElementById('invalid-privacy').classList.add('d-none');
     workType.classList.remove('border-danger');
 
     // validation control variable
@@ -31,10 +32,14 @@ userForm.addEventListener('submit', function (event) {
 
     // input workType validation
     if (workType.value === "") {
-        priceUnit.innerText = '€ --';
-        priceDec.innerText = ',--';
         workType.classList.add('border-danger');
         document.getElementById('invalid-reqwork').classList.remove('d-none');
+        validControl = false;
+    }
+
+    // input privacyCheck validation
+    if (!privacyCheck.checked) {
+        document.getElementById('invalid-privacy').classList.remove('d-none');
         validControl = false;
     }
 
@@ -52,6 +57,9 @@ userForm.addEventListener('submit', function (event) {
         // price visualization in page
         priceUnit.innerText = '€ ' + price.toString().slice(0, 3);
         priceDec.innerText = ',' + price.toString().slice(3, 5);
+    } else {
+        priceUnit.innerText = '€ --';
+        priceDec.innerText = ',--';
     }
 });
 
