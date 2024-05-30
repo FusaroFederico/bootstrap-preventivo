@@ -27,9 +27,11 @@ userForm.addEventListener('submit', function (event) {
     document.getElementById('invalid-privacy').classList.add('d-none');
     document.getElementById('invalid-firstname').classList.add('d-none');
     document.getElementById('invalid-lastname').classList.add('d-none');
+    document.getElementById('invalid-email').classList.add('d-none');
     workType.classList.remove('border-danger');
     userFirstName.classList.remove('border-danger');
     userLastName.classList.remove('border-danger');
+    userEmail.classList.remove('border-danger');
 
     // validation control variable
     let validControl = true;
@@ -56,6 +58,14 @@ userForm.addEventListener('submit', function (event) {
     if (!useRegex(userLastName.value)) {
         document.getElementById('invalid-lastname').classList.remove('d-none');
         userLastName.classList.add('border-danger');
+        validControl = false;
+    }
+
+    // input email validation
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegEx.test(userEmail.value)) {
+        document.getElementById('invalid-email').classList.remove('d-none');
+        userEmail.classList.add('border-danger');
         validControl = false;
     }
 
