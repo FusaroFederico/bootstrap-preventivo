@@ -25,7 +25,11 @@ userForm.addEventListener('submit', function (event) {
     document.getElementById('invalid-promcode').classList.add('d-none');
     document.getElementById('invalid-reqwork').classList.add('d-none');
     document.getElementById('invalid-privacy').classList.add('d-none');
+    document.getElementById('invalid-firstname').classList.add('d-none');
+    document.getElementById('invalid-lastname').classList.add('d-none');
     workType.classList.remove('border-danger');
+    userFirstName.classList.remove('border-danger');
+    userLastName.classList.remove('border-danger');
 
     // validation control variable
     let validControl = true;
@@ -40,6 +44,18 @@ userForm.addEventListener('submit', function (event) {
     // input privacyCheck validation
     if (!privacyCheck.checked) {
         document.getElementById('invalid-privacy').classList.remove('d-none');
+        validControl = false;
+    }
+
+    // input firstname and lastname validation
+    if (!useRegex(userFirstName.value)) {
+        document.getElementById('invalid-firstname').classList.remove('d-none');
+        userFirstName.classList.add('border-danger');
+        validControl = false;
+    }
+    if (!useRegex(userLastName.value)) {
+        document.getElementById('invalid-lastname').classList.remove('d-none');
+        userLastName.classList.add('border-danger');
         validControl = false;
     }
 
@@ -67,4 +83,10 @@ userForm.addEventListener('submit', function (event) {
 function calcPrice(num) {
     const priceHour = [20.50, 15.30, 33.60];
     return priceHour[num - 1] * 10;
+}
+
+// function for firstname and lastname validation
+function useRegex(input) {
+    let regex = /^[a-zA-Z][a-zA-Z'\s]+[a-zA-Z]$/;
+    return regex.test(input);
 }
