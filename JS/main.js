@@ -82,7 +82,7 @@ userForm.addEventListener('submit', function (event) {
 
     // price calculation
     if (validControl) {
-        let price = calcPrice(Number(workType.value)) * 100;
+        let price = calcPrice(Number(workType.value));
         // discount for valid promotional code
         const code = promCode.value;
         if (valPromCode.includes(code.toUpperCase())) {
@@ -92,8 +92,9 @@ userForm.addEventListener('submit', function (event) {
             document.getElementById('invalid-promcode').classList.remove('d-none');
         }
         // price visualization in page
-        priceUnit.innerText = '€ ' + price.toString().slice(0, 3);
-        priceDec.innerText = ',' + price.toString().slice(3, 5);
+        price = price.toFixed(2);
+        priceUnit.innerText = '€ ' + price.toString().split(".")[0];
+        priceDec.innerText = ',' + price.toString().split(".")[1];
     } else {
         priceUnit.innerText = '€ --';
         priceDec.innerText = ',--';
